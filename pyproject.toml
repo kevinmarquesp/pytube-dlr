@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pytube-dlr"
+version = "0.1.0"
+description = ""
+authors = ["Kevin Marques <kevinmarqueskmp@gmail.com>"]
+readme = "README.md"
+packages = [{include = "pytube_dlr"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+pytube-dlr = "pytube_dlr.app:start"
