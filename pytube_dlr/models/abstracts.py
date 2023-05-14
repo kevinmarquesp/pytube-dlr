@@ -1,0 +1,25 @@
+from pytube_dlr.models.types import TDictArguments
+
+from abc import ABC, abstractmethod
+
+
+# todo: add documentation
+class IArguments(ABC):
+    """
+    """
+
+    @abstractmethod
+    def fill_arguments(self, dict_args: TDictArguments):
+        """
+        """
+
+
+# todo: add documentation
+class IApplicationFactory(ABC):
+    """
+    """
+
+    @abstractmethod
+    def get_arguments(self) -> IArguments:
+        """
+        """
