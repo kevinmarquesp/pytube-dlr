@@ -1,4 +1,4 @@
-from pytube_dlr.models.abstracts import IArguments
+from pytube_dlr.models.abstracts import IApplicationArgs
 from pytube_dlr.models.types import TDictArguments
 
 from argparse import Namespace, ArgumentParser
@@ -6,7 +6,7 @@ from sys import argv
 from os import getcwd, cpu_count
 
 
-class Arguments(IArguments):
+class ApplicationArgs(IApplicationArgs):
     # todo: add documentation
     # todo: write tests
     # todo: make it create the correct attributes based on the arguments
@@ -16,7 +16,7 @@ class Arguments(IArguments):
 
 # todo: add documentation
 # todo: write tests
-def get_parsed_args() -> Namespace:
+def get_user_command_args() -> Namespace:
     parser: ArgumentParser = ArgumentParser(
         description='YouTube downloader with a friendly UI'
     )

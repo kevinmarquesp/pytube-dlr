@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 
 
 # todo: add documentation
-class IArguments(ABC):
+class IApplicationArgs(ABC):
     """
     """
 
@@ -20,6 +20,6 @@ class IApplicationFactory(ABC):
     """
 
     @abstractmethod
-    def get_arguments(self) -> IArguments:
+    def get_arguments(self) -> IApplicationArgs:
         """
         """

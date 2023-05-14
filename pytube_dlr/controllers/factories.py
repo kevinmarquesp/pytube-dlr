@@ -1,20 +1,21 @@
-from pytube_dlr.models.abstracts import IApplicationFactory, IArguments
-from pytube_dlr.controllers.arguments import Arguments, get_parsed_args
+from pytube_dlr.models.abstracts import IApplicationFactory, IApplicationArgs
+from pytube_dlr.controllers.arguments import ApplicationArgs
+from pytube_dlr.controllers.arguments import get_user_command_args
 
 from argparse import Namespace
 
 
-class LinuxCliAppFactory(IApplicationFactory):
+class LinuxCliApplicationFactory(IApplicationFactory):
     # todo: write tests
-    def get_arguments(self) -> IArguments:
-        arguments: IArguments = Arguments()
-        user_args: Namespace = get_parsed_args()
+    def get_arguments(self) -> IApplicationArgs:
+        arguments_class: IApplicationArgs = ApplicationArgs()
+        user_args: Namespace = get_user_command_args()
 
-        arguments.fill_arguments({
-            "links": user_args.links,
-            "target": user_args.target,
+        arguments_class.fill_arguments({
+            "links":   user_args.links,
+            "target":  user_args.target,
             "what_if": user_args.whatif,
-            "cpu": user_args.cpu
+            "cpu":     user_args.cpu
         })
 
-        return arguments
+        return arguments_class
