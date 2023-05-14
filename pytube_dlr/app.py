@@ -3,7 +3,7 @@
 from pytube_dlr.models.abstracts import IApplicationFactory, IApplicationArgs
 from pytube_dlr.controllers.factories import LinuxCliApplicationFactory
 
-from typing import Literal, Dict, Optional
+from typing import NoReturn, Literal, Dict, Optional
 from rich.traceback import install as traceback_install
 
 traceback_install()
@@ -12,7 +12,7 @@ TInterfaceOptions = Literal['linux_cli', 'win_cli']
 
 
 # todo: ...
-def main(factory: IApplicationFactory) -> None:
+def main(factory: IApplicationFactory) -> NoReturn:
     """Main function that will trigger the events in order to do the entire
     process of download some YouTube video.
 
@@ -38,7 +38,7 @@ def main(factory: IApplicationFactory) -> None:
     print(args)
 
 
-def setup(user_interface: TInterfaceOptions = 'linux_cli') -> None:
+def setup(user_interface: TInterfaceOptions = 'linux_cli') -> NoReturn:
     """Function responsible for setting up the right factories to generate the
     right tools to the ``main()`` function use it.
 

@@ -12,10 +12,10 @@ class LinuxCliApplicationFactory(IApplicationFactory):
         user_args: Namespace = get_user_command_args()
 
         arguments_class.fill_arguments({
-            "links":  user_args.links,
+            "links": user_args.links,
             "target": user_args.target,
             "whatif": user_args.whatif,
-            "cpu":    user_args.cpu
+            "cpu": user_args.cpu
         })
 
         return arguments_class

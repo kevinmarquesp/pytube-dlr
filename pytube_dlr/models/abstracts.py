@@ -1,5 +1,6 @@
 from pytube_dlr.models.types import TDictArguments
 
+from typing import NoReturn
 from abc import ABC, abstractmethod
 
 
@@ -9,7 +10,7 @@ class IApplicationArgs(ABC):
     """
 
     @abstractmethod
-    def fill_arguments(self, dict_args: TDictArguments):
+    def fill_arguments(self, dict_args: TDictArguments) -> NoReturn:
         """
         """
 
