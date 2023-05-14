@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 
-from pytube_dlr.models.abstracts import IApplicationFactory, IApplicationArgs
+from pytube_dlr.models.types import TUserFactoryOptions
+from pytube_dlr.models.abstracts import IApplicationFactory
 from pytube_dlr.controllers.factories import LinuxCliApplicationFactory
 
-from typing import NoReturn, Literal, Dict, Optional
+from typing import NoReturn, Dict, Optional
 from rich.traceback import install as traceback_install
 
 traceback_install()
-
-TInterfaceOptions = Literal['linux_cli', 'win_cli']
 
 
 # todo: ...
@@ -32,13 +31,10 @@ def main(factory: IApplicationFactory) -> NoReturn:
     Every event inside this function need to be triggered by the factory
     parammeter.
     """
-    args: IApplicationArgs = factory.get_arguments()
-
-    print('|> I need to work with this object:')
-    print(args)
+    pass
 
 
-def setup(user_interface: TInterfaceOptions = 'linux_cli') -> NoReturn:
+def setup(user_interface: TUserFactoryOptions = 'linux_cli') -> NoReturn:
     """Function responsible for setting up the right factories to generate the
     right tools to the ``main()`` function use it.
 

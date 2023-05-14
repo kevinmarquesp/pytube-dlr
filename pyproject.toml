@@ -23,5 +23,8 @@ build-backend = "poetry.core.masonry.api"
 [tool.mypy]
 ignore_missing_imports = true
 
+[mypy-mypy.nodes.EmptyNode]
+ignore_errors = true
+
 [tool.poetry.scripts]
 pytube-dlr = "pytube_dlr.app:setup"

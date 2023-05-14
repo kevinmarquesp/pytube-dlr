@@ -1,4 +1,7 @@
-from typing import TypedDict, List
+from typing import TypedDict, List, Literal
+
+
+TUserFactoryOptions = Literal['linux_cli', 'win_cli']
 
 
 # todo: add documentation
