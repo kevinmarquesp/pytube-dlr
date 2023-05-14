@@ -8,7 +8,7 @@ from rich.traceback import install as traceback_install
 
 traceback_install()
 
-TInterfaceOptions = Literal['cli', 'linux_ui', 'win_ui']
+TInterfaceOptions = Literal['linux_cli', 'win_cli']
 
 
 # todo: add documentation
@@ -19,18 +19,22 @@ def main(factory: IApplicationFactory) -> None:
     print(args)
 
 
-# todo: add documentation
 # todo: write tests
-def setup(interface: TInterfaceOptions = 'cli') -> None:
+def setup(user_interface: TInterfaceOptions = 'linux_cli') -> None:
+    """Function responsible for setting up the right factories to generate the
+    right tools to the ``main()`` function use it.
+
+    :param Literal['linux_cli', 'win_cli'] interface: type of user interface to
+        factory.
+    """
     FACTORIES: Dict[str, IApplicationFactory] = {
-        'cli': LinuxCliApplicationFactory(),
-        'linux_ui': None,
-        'win_ui': None
+        'linux_cli': LinuxCliApplicationFactory(),
+        'win_cli': None
     }
 
-    if interface in FACTORIES:
-        if FACTORIES[interface] is None:
-            raise "That interface doesn't exist yet"
+    if user_interface in FACTORIES:
+        if FACTORIES[user_interface] is None:
+            raise "That interface doesn't"
 
-        factory: IApplicationFactory = FACTORIES[interface]
+        factory: IApplicationFactory = FACTORIES[user_interface]
         main(factory)
