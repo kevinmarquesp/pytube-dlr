@@ -38,7 +38,6 @@ def main(factory: IApplicationFactory) -> None:
     print(args)
 
 
-# todo: create tests
 def setup(user_interface: TInterfaceOptions = 'linux_cli') -> None:
     """Function responsible for setting up the right factories to generate the
     right tools to the ``main()`` function use it.
