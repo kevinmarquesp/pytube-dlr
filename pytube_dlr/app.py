@@ -3,7 +3,7 @@
 from pytube_dlr.models.abstracts import IApplicationFactory, IApplicationArgs
 from pytube_dlr.controllers.factories import LinuxCliApplicationFactory
 
-from typing import Literal, Dict
+from typing import Literal, Dict, Optional
 from rich.traceback import install as traceback_install
 
 traceback_install()
@@ -45,14 +45,14 @@ def setup(user_interface: TInterfaceOptions = 'linux_cli') -> None:
     :param Literal['linux_cli', 'win_cli'] interface: Type of user interface to
         factory.
     """
-    FACTORIES: Dict[str, IApplicationFactory] = {
+    FACTORIES: Dict[str, Optional[IApplicationFactory]] = {
         'linux_cli': LinuxCliApplicationFactory(),
         'win_cli': None
     }
 
-    if user_interface in FACTORIES:
-        if FACTORIES[user_interface] is None:
-            raise "That interface doesn't"
-
-        factory: IApplicationFactory = FACTORIES[user_interface]
+    if FACTORIES[user_interface] is not None and user_interface in FACTORIES:
+        factory: IApplicationFactory = FACTORIES[user_interface]  # type: ignore[assignment]
         main(factory)
+
+    else:
+        raise ValueError(f'Cannot work with this value: {user_interface}')
