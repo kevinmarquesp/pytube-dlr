@@ -10,6 +10,7 @@ packages = [{include = "pytube_dlr"}]
 python = "^3.11"
 sphinx-rtd-theme = "^1.2.0"
 sphinx-autodocgen = "^1.3"
+rich = "^13.3.5"
 
 [build-system]
 requires = ["poetry-core"]
@@ -17,4 +18,4 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.poetry.scripts]
-pytube-dlr = "pytube_dlr.app:start"
+pytube-dlr = "pytube_dlr.app:setup"
