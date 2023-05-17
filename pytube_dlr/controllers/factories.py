@@ -1,4 +1,4 @@
-from pytube_dlr.models.abstracts import IApplicationFactory, IApplicationArgs
+from pytube_dlr.models.abstracts import IApplicationFactory, IApplicatinArgumentsStorage
 from pytube_dlr.controllers.arguments import ApplicationArgs
 from pytube_dlr.controllers.arguments import get_user_command_args
 
@@ -7,8 +7,8 @@ from argparse import Namespace
 
 class LinuxCliApplicationFactory(IApplicationFactory):
     # todo: write tests
-    def get_arguments(self) -> IApplicationArgs:
-        arguments_class: IApplicationArgs = ApplicationArgs()
+    def get_arguments(self) -> IApplicatinArgumentsStorage:
+        arguments_class: IApplicatinArgumentsStorage = ApplicationArgs()
         user_args: Namespace = get_user_command_args()
 
         arguments_class.fill_arguments({

@@ -17,19 +17,6 @@ def main(factory: IApplicationFactory) -> NoReturn:
 
     :param IApplicationFactory factory: Factory that has the right methods to
         handle the YouTube API, user arguments and handle with the file system.
-
-    Need to be done:
-    ----------------
-    - Make it verify if the user has past cache files to continue wight the
-      downloading process;
-        - If not, get the user arguments (it doesn't matter where it came from)
-          to work with;
-    - Using the argumetns, start the download process;
-
-    Developer notes:
-    ----------------
-    Every event inside this function need to be triggered by the factory
-    parammeter.
     """
     pass
 
