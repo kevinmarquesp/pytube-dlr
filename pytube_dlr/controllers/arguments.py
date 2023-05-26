@@ -1,5 +1,5 @@
 from pytube_dlr.models.abstracts import IApplicatinArgumentsStorage
-from pytube_dlr.models.types import TUserArguments
+from pytube_dlr.models.types import InfoUserArguments
 
 from argparse import Namespace as ArgPaarse_Namespace, ArgumentParser
 from sys import argv
@@ -9,7 +9,7 @@ from os import getcwd, cpu_count
 class ApplicationArgs(IApplicatinArgumentsStorage):
     # todo: write tests
     # todo: make it create the correct attributes based on the arguments
-    def fill_arguments(self, dict_args: TUserArguments):
+    def fill_arguments(self, dict_args: InfoUserArguments):
         print(dict_args)
 
 

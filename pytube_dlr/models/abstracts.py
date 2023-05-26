@@ -1,9 +1,10 @@
-from pytube_dlr.models.types import TUserArguments
+from pytube_dlr.models.types import InfoUserArguments
 
 from typing import NoReturn
 from abc import ABC, abstractmethod
 
 
+# todo: try to remove this class, it has already the InfoUserArguments
 class IApplicatinArgumentsStorage(ABC):
     """Interface responsable to create the objects that saves all the user
     information needed to start the download and read/write in the cash files.
@@ -11,7 +12,7 @@ class IApplicatinArgumentsStorage(ABC):
     """
 
     @abstractmethod
-    def fill_arguments(self, dict_args: TUserArguments) -> NoReturn:
+    def fill_arguments(self, dict_args: InfoUserArguments) -> NoReturn:
         """Function responsible to use an arguments dict and store all the usser
         information in this class (self), allowing to handle that information
         and start the features after with other methods
