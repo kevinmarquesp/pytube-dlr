@@ -1,4 +1,5 @@
-from typing import TypedDict, List, Literal
+from typing import List, Literal, NoReturn
+import dataclasses
 
 
 #: Available factories types that can be created
@@ -8,25 +9,35 @@ TUserFactoryOptions = Literal[
 ]
 
 
-class TYoutubeVideo(TypedDict):
-    """Type of a dict that store the information of one single YouTube video"""
+# todo: add docstring
+# todo: add a regex url video verification
+@dataclasses.dataclass(kw_only=True, frozen=True)
+class InfoYoutubeVideo:
+    title: str
+    url: str
 
+    def __post_init__(self) -> NoReturn:
+        if 'youtube' not in self.url:
+            raise ValueError('Invalid youtube url')
+
+
+# todo: add docstring
+# todo: add a regex url playlist verification
+@dataclasses.dataclass(kw_only=True, frozen=True)
+class InfoYoutubePlaylist:
     name: str
     url: str
 
-
-class TYoutubePlaylist(TypedDict):
-    """Type of a dict that can store an entire playlist with its videos"""
-
-    name: str
-    url: str
-    videos: List[TYoutubeVideo]
+    def __post_init__(self) -> NoReturn:
+        if 'youtube' not in self.url:
+            raise ValueError('Invalid youtube url')
 
 
-class TUserArguments(TypedDict):
-    """Dict type of the arguments that the user can provide and modify"""
-
-    links: List[str]
+# todo: add docstring
+# todo: add a regex url playlist verification
+@dataclasses.dataclass(kw_only=True, frozen=True)
+class InfoUserArguments:
+    links: List[str] = dataclasses.field(default_factory=List)
+    whatif: bool = False
     target: str
-    whatif: bool
     cpu: int
